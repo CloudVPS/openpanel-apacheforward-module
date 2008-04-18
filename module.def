@@ -1,0 +1,84 @@
+# ============================================================================
+# OpenPanel ApacheForward.module for website forwarding using Apache2
+# Copyright (C) 2008 PanelSix V.O.F.
+# ============================================================================
+module ApacheForward			< uuid fdf6f294-6134-4ea1-9cde-29519fb571db
+								< version 1
+								< languages en_EN
+								< apitype xml
+
+
+# ============================================================================
+# CLASSES
+# ============================================================================
+class Domain:HTTPForward		< uuid 01a3286f-f41e-4964-89b7-4637539bfec8
+								< version 1
+								< requires Domain
+								< indexing manual
+								< parentrealm domainsuffix
+								< uniquein parent
+								< shortname forward
+								< title Forwarded Website
+								< description HTTP Forwarding
+								< explanation httpforward.html
+								
+								< capabilities create update delete
+								
+	string id					: Hostname part of the site url
+	                            < tooltip The hostname of your site, e.g., www.example.net
+	                            < gridwidth 40
+
+	enum type					: Forwarding type
+								< default frame
+								< gridwidth 10
+	
+	string target				: Target URL
+								< example http://www.example.net/
+								< gridwidth 50
+
+
+# ============================================================================
+# ENUMS
+# ============================================================================
+enum type
+	value frame					: Framed forward
+	value redirect				: HTTP redirect
+
+
+# ============================================================================
+# AUTHD
+# ============================================================================
+authd fileops
+	*.conf						: /etc/%%SERVICENAME%%/openpanel.d
+								< user root
+								< group root
+								< perms 0644
+								
+	*.html						: /var/www/forwards/*
+								< user root
+								< group root
+								< perms 0644
+	
+	*							: /var/www/forwards/*
+								< user root
+								< group root
+								< perms 0644
+	
+	**							: /etc/httpd/openpanel.d/*
+								< user root
+								< group root
+								< pers 0644
+
+# ----------------------------------------------------------------------------
+authd services
+	service %%SERVICENAME%%
+
+
+# ============================================================================
+# DISTRO MACROS
+# ============================================================================
+distro redhat
+	macro SERVICENAME			: httpd
+	
+distro debian
+	macro SERVICENAME			: apache2
