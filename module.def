@@ -26,7 +26,7 @@ class Domain:HTTPForward		< uuid 01a3286f-f41e-4964-89b7-4637539bfec8
 								
 								< metatype derived
 								< metabase Meta:Website
-								< metadescription forward $type$ -> $target$
+								< metadescription forward $target$
 								
 	string id					: Hostname part of the site url
 	                            < tooltip The hostname of your site, e.g., www.example.net
