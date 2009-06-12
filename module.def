@@ -12,7 +12,7 @@ module ApacheForward			< uuid fdf6f294-6134-4ea1-9cde-29519fb571db
 # CLASSES
 # ============================================================================
 class Domain:HTTPForward		< uuid 01a3286f-f41e-4964-89b7-4637539bfec8
-								< version 1
+								< version 2
 								< requires Domain
 								< indexing manual
 								< parentrealm domainsuffix
@@ -23,6 +23,10 @@ class Domain:HTTPForward		< uuid 01a3286f-f41e-4964-89b7-4637539bfec8
 								< explanation httpforward.html
 								
 								< capabilities create update delete
+								
+								< metatype derived
+								< metabase Meta:Website
+								< metadescription forward $type$ -> $target$
 								
 	string id					: Hostname part of the site url
 	                            < tooltip The hostname of your site, e.g., www.example.net
