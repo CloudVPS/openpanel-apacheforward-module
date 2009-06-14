@@ -67,8 +67,8 @@ public:
 		}
 		catch (exception e)
 		{
-			seterror (CoreModule::E_OTHER,
-					  "File write exception: %s" %format (e.description));
+			error (CoreModule::E_OTHER, "File write exception: %s"
+												%format (e.description));
 			return false;
 		}
 		
@@ -76,7 +76,7 @@ public:
 		{
 			if (! f.openwrite ("index.html"))
 			{
-				seterror (CoreModule::E_OTHER, "Could not write indexfile");
+				error (CoreModule::E_OTHER, "Could not write indexfile");
 				return false;
 			}
 			
@@ -90,23 +90,23 @@ public:
 			f.close ();
 			
 			string fddir = "/var/www/forwards/%s" %format (id);
-			authd.makedir (fddir);
+			authd.makeDir (fddir);
 			
-			if (! authd.installfile ("index.html", fddir))
+			if (! authd.installFile ("index.html", fddir))
 			{
-				seterror (CoreModule::E_AUTHD, authd.error); return false;
+				error (CoreModule::E_AUTHD, authd.error); return false;
 			}
 		}
 		
-		if (! authd.installfile (fname, CONFDIR))
+		if (! authd.installFile (fname, CONFDIR))
 		{
-			seterror (CoreModule::E_AUTHD, authd.error);
+			error (CoreModule::E_AUTHD, authd.error);
 			return false;
 		}
 		
-		if (! authd.reloadservice (SVCNAME))
+		if (! authd.reloadService (SVCNAME))
 		{
-			seterror (CoreModule::E_AUTHD, authd.error);
+			error (CoreModule::E_AUTHD, authd.error);
 			return false;
 		}
 		
@@ -121,10 +121,10 @@ public:
 		string fnam = "%s.conf" %format (id);
 		string fpat = CONFDIR "/%s" %format (fnam);
 		
-        authd.deletefile (fpat);
+        authd.deleteFile (fpat);
 		
 		fs.rm (fnam);
-		authd.reloadservice (SVCNAME);
+		authd.reloadService (SVCNAME);
 		
 		return true;
 	}
