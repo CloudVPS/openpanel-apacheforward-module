@@ -41,7 +41,7 @@ public:
 		
 		if (! f.openwrite (fname))
 		{
-			seterror (CoreModule::E_OTHER, "Could not write file");
+			error (CoreModule::E_OTHER, "Could not write file");
 			return false;
 		}
 		
@@ -52,7 +52,7 @@ public:
 			f.writeln ("  DocumentRoot /var/www/forwards/%s" %format (id));
 			f.writeln ("  ServerName %s" %format (id));
 			
-			value aliases = listaliases (env);
+			value aliases = listAliases (env);
 			foreach (alias, aliases)
 			{
 				f.writeln ("  ServerAlias %s" %format (alias));
