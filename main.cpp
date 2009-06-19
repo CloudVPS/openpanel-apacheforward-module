@@ -26,15 +26,15 @@ public:
 	// ----------------------------------------------------------------------
 	// CREATE
 	// ----------------------------------------------------------------------
-	bool create (const value &env)
+	bool create (void)
 	{
-		return update (env);
+		return update ();
 	}
 	
 	// ----------------------------------------------------------------------
 	// UPDATE
 	// ----------------------------------------------------------------------
-	bool update (const value &env)
+	bool update (void)
 	{
 		file f;
 		string fname = "%s.conf" %format (id);
@@ -116,7 +116,7 @@ public:
 	// ----------------------------------------------------------------------
 	// REMOVE
 	// ----------------------------------------------------------------------
-	bool remove (const value &env)
+	bool remove (void)
 	{
 		string fnam = "%s.conf" %format (id);
 		string fpat = CONFDIR "/%s" %format (fnam);
@@ -125,7 +125,6 @@ public:
 		
 		fs.rm (fnam);
 		authd.reloadService (SVCNAME);
-		
 		return true;
 	}
 };
