@@ -5,7 +5,7 @@ OBJ	= main.o
 all: module.xml action
 
 action: $(OBJ)
-	$(LD) $(LDFLAGS) -o action $(OBJ) -L/var/opencore/api/grace/lib -L../opencore/api/grace/lib -lgrace-coreapi $(LIBS)
+	$(LD) $(LDFLAGS) -o action $(OBJ) -L/usr/lib/opencore -lgrace-coreapi $(LIBS)
 
 module.xml: module.def
 	mkmodulexml < module.def > module.xml
@@ -19,4 +19,4 @@ makeinclude:
 
 SUFFIXES: .cpp .o
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -I/var/opencore/api/grace/include -I../opencore/api/grace/include -c $<
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -I/usr/include/opencore -c $<
