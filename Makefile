@@ -19,4 +19,4 @@ makeinclude:
 
 SUFFIXES: .cpp .o
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -I/usr/include/opencore -c $<
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -I/var/opencore/api/grace/include -I/usr/include/opencore -c $<
