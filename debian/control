@@ -7,6 +7,7 @@ Standards-Version: 3.7.2
 
 Package: openpanel-mod-apacheforward
 Architecture: any
-Depends: , openpanel-core (>= 0.8.3), openpanel-mod-user, openpanel-mod-domain, openpanel-mod-apache2
-Description: Configure the apache2 webserver for http redirects / framed forwards
+Depends: openpanel-core (>= 0.8.3), openpanel-mod-user, openpanel-mod-domain, openpanel-mod-apache2
+Description: OpenPanel module to configure website forwarding
+ Configure the apache2 webserver for http redirects / framed forwards
  Openpanel website forwarding module
