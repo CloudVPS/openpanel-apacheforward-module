@@ -8,7 +8,6 @@
 # section of the OpenPanel website on http://www.openpanel.com/
 # ============================================================================
 # OpenPanel ApacheForward.module for website forwarding using Apache2
-# Copyright (C) 2008 PanelSix V.O.F.
 # ============================================================================
 module ApacheForward			< uuid fdf6f294-6134-4ea1-9cde-29519fb571db
 								< version 1
