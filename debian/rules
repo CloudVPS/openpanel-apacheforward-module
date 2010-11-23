@@ -19,9 +19,9 @@ install-stamp: build-stamp
 	dh_testdir
 	dh_testroot
 	dh_installdirs
-	install -m 755 action debian/openpanel-mod-apacheforward/var/opencore/modules/ApacheForward.module/
-	cp module.xml *.html debian/openpanel-mod-apacheforward/var/opencore/modules/ApacheForward.module/
-	install -m 755 verify debian/openpanel-mod-apacheforward/var/opencore/modules/ApacheForward.module/
+	install -m 755 action debian/openpanel-mod-apacheforward/var/openpanel/modules/ApacheForward.module/
+	cp module.xml *.html debian/openpanel-mod-apacheforward/var/openpanel/modules/ApacheForward.module/
+	install -m 755 verify debian/openpanel-mod-apacheforward/var/openpanel/modules/ApacheForward.module/
 
 binary-indep: build install
 

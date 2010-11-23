@@ -42,15 +42,15 @@ make
 %install
 BUILD_ROOT=$RPM_BUILD_ROOT
 rm -rf ${BUILD_ROOT}
-mkdir -p ${BUILD_ROOT}/var/opencore/modules/ApacheForward.module
-mkdir -p ${BUILD_ROOT}/var/opencore/conf/staging/ApacheForward
+mkdir -p ${BUILD_ROOT}/var/openpanel/modules/ApacheForward.module
+mkdir -p ${BUILD_ROOT}/var/openpanel/conf/staging/ApacheForward
 mkdir -p ${BUILD_ROOT}/var/www
-install -m 755 action ${BUILD_ROOT}/var/opencore/modules/ApacheForward.module/
-cp module.xml *.html ${BUILD_ROOT}/var/opencore/modules/ApacheForward.module/
-install -m 755 verify ${BUILD_ROOT}/var/opencore/modules/ApacheForward.module/
+install -m 755 action ${BUILD_ROOT}/var/openpanel/modules/ApacheForward.module/
+cp module.xml *.html ${BUILD_ROOT}/var/openpanel/modules/ApacheForward.module/
+install -m 755 verify ${BUILD_ROOT}/var/openpanel/modules/ApacheForward.module/
 
 %post
-chown opencore:authd /var/opencore/conf/staging/ApacheForward
+chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/ApacheForward
 service httpd restart >/dev/null 2>&1
 
 %files
