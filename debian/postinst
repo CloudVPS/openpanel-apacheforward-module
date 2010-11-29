@@ -29,6 +29,7 @@ set -e
 
 case "$1" in
     configure)
+    	mkdir -p /var/opencore/conf/staging/ApacheForward
         chown opencore:authd /var/opencore/conf/staging/ApacheForward
         mkdir -p /var/www/forwards
         invoke-rc.d apache2 restart
