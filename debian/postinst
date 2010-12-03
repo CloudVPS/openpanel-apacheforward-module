@@ -30,7 +30,7 @@ set -e
 case "$1" in
     configure)
     	mkdir -p /var/openpanel/conf/staging/ApacheForward
-        chown opencore:authd /var/openpanel/conf/staging/ApacheForward
+        chown opencore:openpanel-authd /var/openpanel/conf/staging/ApacheForward
         mkdir -p /var/www/forwards
         invoke-rc.d apache2 restart
         invoke-rc.d openpanel-core reload
