@@ -34,7 +34,7 @@ case "$1" in
         mkdir -p /var/www/forwards
         invoke-rc.d apache2 restart
         invoke-rc.d openpanel-core reload
-    ;;
+	    ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
 
