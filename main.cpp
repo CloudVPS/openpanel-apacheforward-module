@@ -68,10 +68,19 @@ public:
 			f.writeln ("  DocumentRoot /var/www/forwards/%s" %format (id));
 			f.writeln ("  ServerName %s" %format (id));
 			
+			if (id.strncmp ("www.", 4) == 0)
+			{
+				f.writeln ("  ServerAlias %s" %format (id.mid(4)));
+			}
+			
 			value aliases = listAliases (env);
 			foreach (alias, aliases)
 			{
 				f.writeln ("  ServerAlias %s" %format (alias));
+				if (alias.strncmp ("www.", 4) == 0)
+				{
+					f.writeln ("  ServerAlias %s" %format (alias.mid(4)));
+				}
 			}
 			
 			if (param["type"] == "redirect")
