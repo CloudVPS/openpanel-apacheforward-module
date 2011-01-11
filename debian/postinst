@@ -32,8 +32,7 @@ case "$1" in
     	mkdir -p /var/openpanel/conf/staging/ApacheForward
         chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/ApacheForward
         mkdir -p /var/www/forwards
-        invoke-rc.d apache2 restart
-        invoke-rc.d openpanel-core reload
+        invoke-rc.d apache2 reload
 	    ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
