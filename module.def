@@ -12,7 +12,7 @@
 module ApacheForward			< uuid fdf6f294-6134-4ea1-9cde-29519fb571db
 								< version 1
 								< languages en_EN
-								< apitype xml
+								< apitype grace
 								< requires Apache2.module
 								< license GPLv3
 								< author OpenPanel
