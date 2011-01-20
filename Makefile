@@ -25,6 +25,15 @@ makeinclude:
 	@echo please run ./configure
 	@false
 
+install:
+	mkdir -p ${DESTDIR}/var/openpanel/modules/ApacheForward.module
+	mkdir -p ${DESTDIR}/var/openpanel/conf/staging/ApacheForward
+	install -m 755 action ${DESTDIR}/var/openpanel/modules/ApacheForward.module/action
+	cp     module.xml	  ${DESTDIR}/var/openpanel/modules/ApacheForward.module/module.xml
+	install -m 755 verify      ${DESTDIR}/var/openpanel/modules/ApacheForward.module/verify
+	cp *.html ${DESTDIR}/var/openpanel/modules/ApacheForward.module
+
+
 SUFFIXES: .cpp .o
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -I/var/openpanel/api/grace/include -I/usr/include/opencore -c $<
