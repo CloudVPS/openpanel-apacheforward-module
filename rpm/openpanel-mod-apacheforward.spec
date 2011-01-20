@@ -9,7 +9,7 @@ Group: 		Applications/Internet
 Source: 	%{name}-%{version}.tar.bz2
 Requires:	openpanel-core
 Requires:	grace-dbfile-devel
-Requires: 	apache2
+Requires: 	httpd >= 2.0
 BuildRequires:	openpanel-core-devel
 BuildRequires:	grace-dbfile-devel
 BuildRequires: 	grace-devel
