@@ -66,7 +66,7 @@ public:
 			f.writeln ("<VirtualHost *:80>");
 			f.writeln ("  ServerAdmin webmaster@%s" %format (id));
 			
-			if (param["type"] != "frame")
+			if (param["type"] == "frame")
 			{
 				f.writeln ("  DocumentRoot /var/www/forwards/%s" %format (id));
 			}
